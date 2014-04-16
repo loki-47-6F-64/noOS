@@ -1,3 +1,5 @@
+noOS
+====
 Created a small kernel that prints "A second has passed" every second.
 
 Compile:
