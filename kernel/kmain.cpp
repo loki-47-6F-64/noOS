@@ -4,9 +4,8 @@
 kernel::Screen *_screen;
 
 namespace kernel {
-  Screen &getScreen() {
-    return *_screen;
-  }
+Screen &getScreen() {
+  return *_screen;
 }
 
 extern "C" {
@@ -21,9 +20,10 @@ void kmain(void)
   irs_install();
   irq_install();
   timer_install();
+  keyboard_install();
   __asm__ __volatile__ ("sti");
 
-  kernel::getScreen().write("System booted!\n");
+  getScreen().write("System booted!\n");
 
   for(;;);
   return;
@@ -45,4 +45,6 @@ ubyte inportb (uword _port) {
 *  cannot be done in C */
 void outportb (uword _port, ubyte _data) {
   __asm__ __volatile__ ("outb %1, %0" : : "dN" (_port), "a" (_data));
+}
+
 }

@@ -2,6 +2,7 @@
 
 #include <system.h>
 
+namespace kernel {
 struct gdt_entry {
   uword limit_low;
   uword base_low;
@@ -69,4 +70,5 @@ void gdt_install()
 
     /* Flush out the old GDT and install the new changes! */
     gdt_flush();
+}
 }

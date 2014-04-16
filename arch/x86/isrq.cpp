@@ -1,5 +1,6 @@
 #include <system.h>
 
+namespace kernel {
 /* These are own ISRs that point to our special IRQ handler
 *  instead of the regular 'fault_handler' function */
 
@@ -123,4 +124,6 @@ void irq_handler(regs *r) {
   *  interrupt controller too */
   outportb(0x20, 0x20);
 }
+}
+
 }

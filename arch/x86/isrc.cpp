@@ -1,6 +1,7 @@
 #include <system.h>
 #include <screen.h>
 
+namespace kernel {
 /* dirty define */
 #define ISR(x) extern void isr##x()
 extern "C" {
@@ -83,4 +84,6 @@ void fault_handler(regs *r) {
       for (;;);
   }
 }
+}
+
 }

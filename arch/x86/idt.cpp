@@ -1,5 +1,6 @@
 #include <system.h>
 
+namespace kernel {
 struct idt_entry {
   uword base_lo;
   uword sel;
@@ -48,4 +49,6 @@ void idt_install() {
 
   /* Points the processor's internal register to the new IDT */
   idt_load();
+}
+
 }

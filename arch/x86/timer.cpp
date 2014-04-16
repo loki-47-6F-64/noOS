@@ -1,6 +1,7 @@
 #include <system.h>
 #include <screen.h>
 
+namespace kernel {
 dword timer_ticks = 0;
 
 void timer_handler(regs *r) {
@@ -14,4 +15,6 @@ void timer_handler(regs *r) {
 
 void timer_install() {
   irq_install_handler(0, timer_handler);
+}
+
 }
